@@ -397,12 +397,88 @@
   }
 
   /* ── RESPONSIVE ── */
+
+  /* Tablet grande / laptop pequeño (≤1024px) */
+  @media(max-width:1024px){
+    .container { padding: 0 20px; }
+    .encargo-wrap { gap:32px; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .ventajas-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* Tablet (≤768px) */
   @media(max-width:768px){
+    nav { padding: 0 16px; }
     .nav-links { display:none; }
-    .encargo-wrap { grid-template-columns:1fr; gap:32px; }
-    .form-row { grid-template-columns:1fr; }
-    .calc-card { padding:24px 20px; }
-    .form-card { padding:24px 20px; }
+    .nav-logo { font-size:1.3rem; }
+    .nav-wa { padding:5px 12px; font-size:.75rem; }
+
+    section { padding: 52px 16px; }
+
+    .steps-grid { grid-template-columns: 1fr 1fr; gap:16px; }
+    .step-card { padding:20px 16px; }
+
+    .encargo-wrap { grid-template-columns:1fr; gap:28px; }
+    .form-card { padding:24px 18px; }
+    .form-row { grid-template-columns:1fr; gap:12px; }
+    .form-row-3 { grid-template-columns:1fr; gap:12px; }
+
+    .ventajas-grid { grid-template-columns: repeat(2, 1fr); gap:14px; }
+
+    .wa-big { padding:14px 28px; font-size:1.1rem; }
+    .wa-number { font-size:1.6rem; }
+
+    .color-chips { gap:6px; }
+    .chip { font-size:.75rem; padding:5px 10px; }
+  }
+
+  /* Móvil (≤480px) */
+  @media(max-width:480px){
+    nav { height:54px; }
+    .nav-logo { font-size:1.15rem; }
+    .nav-wa span { display:none; }
+    .nav-wa::after { content:'💬'; }
+
+    .hero { padding: 70px 16px 40px; }
+    .hero-badge { font-size:.7rem; padding:4px 14px; }
+    .hero-ctas { flex-direction:column; align-items:center; gap:10px; }
+    .btn-primary, .btn-secondary { width:100%; max-width:300px; text-align:center; padding:13px 20px; }
+
+    .steps-grid { grid-template-columns:1fr; }
+
+    .section-title { font-size:clamp(1.6rem,8vw,2.4rem); }
+
+    .form-card { padding:20px 14px; border-radius:16px; }
+    .form-group label { font-size:.82rem; }
+    .form-card input,
+    .form-card select,
+    .form-card textarea { padding:11px 13px; font-size:.9rem; }
+    .submit-btn { font-size:.95rem; padding:14px; }
+
+    .photo-upload { padding:16px 12px; }
+
+    .color-chips { gap:5px; }
+    .chip { font-size:.72rem; padding:4px 9px; }
+
+    .ventajas-grid { grid-template-columns:1fr; }
+    .ventaja-card { padding:20px 16px; }
+
+    .wa-big { padding:14px 20px; font-size:1rem; border-radius:40px; }
+    .wa-number { font-size:1.4rem; }
+
+    .floating-wa { width:52px; height:52px; font-size:1.5rem; bottom:20px; right:16px; }
+    .floating-wa::before { display:none; }
+
+    #contacto { padding:56px 16px; }
+
+    .calc-card { padding:20px 14px; }
+  }
+
+  /* Móvil muy pequeño (≤360px) */
+  @media(max-width:360px){
+    .nav-logo { font-size:1rem; }
+    .form-card { padding:16px 12px; }
+    .btn-primary, .btn-secondary { font-size:.9rem; }
   }
 
   /* observe fade-in */
