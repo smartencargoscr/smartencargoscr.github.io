@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Dejá tu Reseña · Smart Encargos CR</title>
+<meta name="description" content="Contanos tu experiencia con Smart Encargos CR. Tu opinión ayuda a otros clientes a confiar en nuestro servicio.">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue-dark:#0a2a6e;
+  --blue:#1447c0;
+  --blue-mid:#1a5be8;
+  --blue-light:#3b82f6;
+  --gold:#f5c842;
+  --white:#ffffff;
+  --gray-light:#f0f4ff;
+  --text:#1e293b;
+  --radius:16px;
+  --tr:.25s ease;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--blue-dark);color:var(--white);min-height:100vh;display:flex;flex-direction:column}
+
+/* NAV */
+.top-nav{background:rgba(10,42,110,.95);backdrop-filter:blur(12px);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(245,200,66,.18)}
+.nav-brand{font-family:'Bebas Neue';font-size:1.2rem;color:var(--white);text-decoration:none;letter-spacing:1px}
+.nav-brand span{color:var(--gold)}
+.nav-back{font-size:.82rem;color:var(--gold);font-weight:700;text-decoration:none;transition:opacity var(--tr)}
+.nav-back:hover{opacity:.7}
+
+/* HERO */
+.hero{text-align:center;padding:52px 24px 38px;background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(245,200,66,.10) 0%,transparent 60%)}
+.hero-ico{font-size:3rem;margin-bottom:12px;position:relative;z-index:1}
+.hero h1{font-family:'Bebas Neue';font-size:clamp(2rem,6vw,3rem);color:var(--white);margin-bottom:10px;letter-spacing:1px;position:relative;z-index:1}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{font-size:.97rem;color:rgba(255,255,255,.72);line-height:1.7;max-width:440px;margin:0 auto;position:relative;z-index:1}
+
+/* CARD */
+.card-wrap{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:32px 20px 56px}
+.card{background:var(--white);color:var(--text);border-radius:var(--radius);padding:36px 32px;width:100%;max-width:560px;box-shadow:0 12px 48px rgba(0,0,0,.35)}
+@media(max-width:500px){.card{padding:24px 16px}}
+
+/* FORM */
+.f-grp{margin-bottom:18px}
+.f-grp label{display:block;font-size:.8rem;font-weight:800;color:var(--blue-dark);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.f-grp input,.f-grp textarea{width:100%;padding:11px 14px;border:2px solid #e2e8f0;border-radius:10px;font-family:'Nunito';font-size:.95rem;color:var(--text);background:#fff;transition:border-color var(--tr);outline:none}
+.f-grp input:focus,.f-grp textarea:focus{border-color:var(--blue-light)}
+.f-grp textarea{resize:vertical;min-height:110px;line-height:1.6}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:420px){.f-row{grid-template-columns:1fr}}
+.f-opt{font-size:.73rem;color:#94a3b8;font-weight:400;font-style:italic;margin-left:4px;text-transform:none;letter-spacing:0}
+
+/* STARS */
+.star-row{display:flex;gap:6px;margin-top:4px}
+.star-btn{font-size:1.9rem;cursor:pointer;opacity:.2;transition:opacity .15s,transform .1s;background:none;border:none;padding:0;line-height:1}
+.star-btn.on{opacity:1}
+.star-btn:hover{transform:scale(1.15);opacity:.8}
+.star-label{font-size:.83rem;color:#94a3b8;margin-top:6px;min-height:1.3em;font-style:italic}
+
+/* BUTTON */
+.btn-send{width:100%;padding:14px;background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff;border:none;border-radius:10px;font-family:'Nunito';font-size:1rem;font-weight:900;cursor:pointer;transition:transform var(--tr),box-shadow var(--tr);margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.3px}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,71,192,.4)}
+.btn-send:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* HINT */
+.hint{font-size:.79rem;color:#64748b;line-height:1.6;margin-top:14px;text-align:center;padding:12px 14px;background:#f0f4ff;border-radius:10px;border:1px solid rgba(59,130,246,.2)}
+.hint strong{color:var(--blue-dark)}
+
+/* SUCCESS */
+.success-box{display:none;text-align:center;padding:28px 10px}
+.success-ico{font-size:3.2rem;margin-bottom:14px}
+.success-box h2{font-family:'Bebas Neue';font-size:1.7rem;color:var(--blue-dark);margin-bottom:10px;letter-spacing:1px}
+.success-box p{font-size:.95rem;color:#64748b;line-height:1.7}
+.btn-back{display:inline-block;margin-top:22px;padding:11px 28px;background:var(--blue-dark);color:#fff;border-radius:30px;font-weight:800;font-size:.9rem;text-decoration:none;transition:opacity var(--tr)}
+.btn-back:hover{opacity:.8}
+
+/* FOOTER */
+footer{text-align:center;padding:20px;font-size:.76rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(245,200,66,.1)}
+footer a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand">Smart<span>Encargos</span> CR</a>
+  <a href="index.html" class="nav-back">← Volver al sitio</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-ico">⭐</div>
+  <h1>Dejá tu <em>Reseña</em></h1>
+  <p>Tu experiencia ayuda a otros clientes a confiar en Smart Encargos CR. ¡Gracias por compartirla!</p>
+</div>
+
+<div class="card-wrap">
+  <div class="card">
+
+    <div id="formSection">
+
+      <div class="f-row">
+        <div class="f-grp">
+          <label>Tu nombre *</label>
+          <input type="text" id="rName" placeholder="Ej: María González" autocomplete="name">
+        </div>
+        <div class="f-grp">
+          <label>Provincia <span class="f-opt">(opcional)</span></label>
+          <input type="text" id="rOrigin" placeholder="Ej: Alajuela, Cartago">
+        </div>
+      </div>
+
+      <div class="f-grp">
+        <label>Producto encargado <span class="f-opt">(opcional)</span></label>
+        <input type="text" id="rProduct" placeholder='Ej: Samsung 55" 4K, Lavadora LG 18lb'>
+      </div>
+
+      <div class="f-grp">
+        <label>Calificación *</label>
+        <div class="star-row">
+          <button class="star-btn" onclick="setStar(1)">⭐</button>
+          <button class="star-btn" onclick="setStar(2)">⭐</button>
+          <button class="star-btn" onclick="setStar(3)">⭐</button>
+          <button class="star-btn" onclick="setStar(4)">⭐</button>
+          <button class="star-btn" onclick="setStar(5)">⭐</button>
+        </div>
+        <div class="star-label" id="starLabel">Seleccioná tu calificación</div>
+      </div>
+
+      <div class="f-grp">
+        <label>Tu reseña *</label>
+        <textarea id="rText" placeholder="Contanos tu experiencia: el producto, el servicio, el tiempo de entrega, lo que más te gustó..."></textarea>
+      </div>
+
+      <button class="btn-send" id="btnSend" onclick="submitReview()">
+        <span>✉️</span><span id="btnLabel">Enviar reseña</span>
+      </button>
+
+      <p class="hint">
+        <strong>¿Cómo funciona?</strong> Completá el formulario y tu reseña nos llegará por correo. La revisamos y la publicamos en el sitio si la aprobamos.
+      </p>
+    </div>
+
+    <div class="success-box" id="successBox">
+      <div class="success-ico">🎉</div>
+      <h2>¡Gracias por tu reseña!</h2>
+      <p>Tu reseña fue enviada exitosamente. La revisaremos pronto y la publicaremos en el sitio. ¡Pura vida!</p>
+      <a href="index.html" class="btn-back">← Volver al sitio</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>© <span id="ftYear"></span> Smart Encargos CR · <a href="index.html">Inicio</a></p>
+</footer>
+
+<script>
+// ── Stars ──────────────────────────────────────────
+let currentStar = 0;
+const starTxt = ['','Mala 😕','Regular 😐','Buena 🙂','Muy buena 😊','¡Excelente! 🤩'];
+
+function setStar(n){
+  currentStar = n;
+  document.querySelectorAll('.star-btn').forEach((b,i)=>b.classList.toggle('on',i<n));
+  document.getElementById('starLabel').textContent = starTxt[n];
+}
+
+// ── Cargar Formspree ID desde data.json ───────────
+let formspreeId = '';
+fetch('./data.json?nc='+Date.now(),{cache:'no-store'})
+  .then(r=>r.ok?r.json():null)
+  .then(d=>{ if(d?.formspreeResenas) formspreeId = d.formspreeResenas; })
+  .catch(()=>{});
+
+// ── Submit ──────────────────────────────────────────
+async function submitReview(){
+  const name    = document.getElementById('rName').value.trim();
+  const origin  = document.getElementById('rOrigin').value.trim();
+  const product = document.getElementById('rProduct').value.trim();
+  const text    = document.getElementById('rText').value.trim();
+
+  if(!name){   alert('Por favor ingresá tu nombre.'); document.getElementById('rName').focus(); return; }
+  if(!currentStar){ alert('Por favor seleccioná una calificación.'); return; }
+  if(!text){   alert('Por favor escribí tu reseña.'); document.getElementById('rText').focus(); return; }
+
+  const stars = '⭐'.repeat(currentStar);
+  const btn = document.getElementById('btnSend');
+  const lbl = document.getElementById('btnLabel');
+
+  if(formspreeId){
+    btn.disabled = true;
+    lbl.textContent = 'Enviando...';
+    try{
+      const res = await fetch('https://formspree.io/f/'+formspreeId,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({
+          _subject: 'Nueva Reseña — Smart Encargos CR' + (product?' — '+product:''),
+          nombre:       name,
+          provincia:    origin||'(no indicado)',
+          producto:     product||'(no indicado)',
+          calificacion: stars+' ('+currentStar+'/5)',
+          resena:       text
+        })
+      });
+      const data = await res.json();
+      if(data.ok||res.ok){
+        showSuccess();
+      } else {
+        throw new Error(data.error||'Error al enviar');
+      }
+    }catch(e){
+      alert('No se pudo enviar: '+e.message+'. Intentá nuevamente.');
+    }finally{
+      btn.disabled = false;
+      lbl.textContent = 'Enviar reseña';
+    }
+  } else {
+    // Fallback: WhatsApp
+    const wa = '50671757727';
+    const msg = [
+      '⭐ *NUEVA RESEÑA — Smart Encargos CR*',
+      '',
+      '👤 *Nombre:* '+name,
+      origin  ? '📍 *Provincia:* '+origin   : '',
+      product ? '📦 *Producto:* '+product   : '',
+      '🌟 *Calificación:* '+stars+' ('+currentStar+'/5)',
+      '',
+      '💬 *Reseña:*',
+      text
+    ].filter(l=>l!==undefined&&(l.trim()!==''||l==='')).join('\n');
+    window.open('https://wa.me/'+wa+'?text='+encodeURIComponent(msg),'_blank');
+    setTimeout(showSuccess, 800);
+  }
+}
+
+function showSuccess(){
+  document.getElementById('formSection').style.display='none';
+  document.getElementById('successBox').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── Init ────────────────────────────────────────────
+document.getElementById('ftYear').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
