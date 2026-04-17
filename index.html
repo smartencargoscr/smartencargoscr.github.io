@@ -484,6 +484,74 @@
   /* observe fade-in */
   .reveal { opacity:0; transform:translateY(28px); transition:opacity .6s ease, transform .6s ease; }
   .reveal.visible { opacity:1; transform:none; }
+
+  /* ── RESEÑAS ── */
+  #resenas { background:#fff; }
+  .res-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:22px; margin:48px 0 40px; }
+  .res-card { background:var(--gray-light); border-radius:var(--radius); padding:26px 22px; box-shadow:0 2px 12px rgba(20,71,192,.08); border:1px solid rgba(20,71,192,.06); transition:transform .2s,box-shadow .2s; }
+  .res-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+  .res-stars { font-size:1.1rem; margin-bottom:10px; }
+  .res-text { font-size:.93rem; color:var(--text); line-height:1.65; margin-bottom:16px; font-style:italic; }
+  .res-footer { display:flex; align-items:center; gap:12px; }
+  .res-avatar { width:38px; height:38px; border-radius:50%; background:var(--blue); color:#fff; font-size:.95rem; font-weight:900; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .res-name { font-weight:800; font-size:.88rem; color:var(--blue-dark); }
+  .res-sub { font-size:.75rem; color:#64748b; margin-top:2px; }
+  .res-date { margin-left:auto; font-size:.74rem; color:#94a3b8; font-weight:700; white-space:nowrap; }
+  .res-empty { color:#94a3b8; font-size:.95rem; grid-column:1/-1; text-align:center; padding:32px; }
+  .btn-resena { display:inline-flex; align-items:center; gap:8px; padding:13px 30px; background:var(--gold); color:var(--blue-dark); border-radius:30px; font-weight:900; font-size:.9rem; text-decoration:none; transition:transform .15s,box-shadow .15s; }
+  .btn-resena:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(245,200,66,.5); }
+
+  /* ── ADMIN OVERLAY ── */
+  .adm-overlay { display:none; position:fixed; inset:0; background:rgba(10,42,110,.88); z-index:2000; backdrop-filter:blur(6px); overflow-y:auto; padding:20px 16px; }
+  .adm-overlay.open { display:flex; align-items:flex-start; justify-content:center; }
+  .adm-box { background:#fff; border-radius:20px; width:100%; max-width:740px; overflow:hidden; animation:fadeUp .3s ease; }
+  .adm-head { background:var(--blue-dark); color:#fff; padding:18px 24px; display:flex; justify-content:space-between; align-items:center; }
+  .adm-head h2 { font-family:'Bebas Neue'; font-size:1.35rem; letter-spacing:1px; margin:0; }
+  .adm-x { background:rgba(255,255,255,.15); border:none; color:#fff; border-radius:50%; width:30px; height:30px; font-size:1rem; cursor:pointer; line-height:1; }
+  .adm-login-box { padding:32px 28px; }
+  .adm-login-box h3 { font-family:'Bebas Neue'; font-size:1.3rem; color:var(--blue-dark); margin-bottom:16px; }
+  .adm-pw-row { display:flex; gap:10px; }
+  .adm-pw-row input { flex:1; padding:11px 14px; border:2px solid #e2e8f0; border-radius:8px; font-family:'Nunito'; font-size:.95rem; outline:none; transition:border-color .2s; }
+  .adm-pw-row input:focus { border-color:var(--blue-light); }
+  .adm-pw-row button { padding:11px 20px; background:var(--blue); color:#fff; border:none; border-radius:8px; font-family:'Nunito'; font-weight:800; cursor:pointer; transition:background .2s; }
+  .adm-pw-row button:hover { background:var(--blue-dark); }
+  .adm-tabs { display:flex; border-bottom:2px solid #e2e8f0; }
+  .adm-tab { flex:1; padding:13px 8px; font-family:'Nunito'; font-size:.84rem; font-weight:800; border:none; background:none; cursor:pointer; color:#94a3b8; border-bottom:3px solid transparent; margin-bottom:-2px; transition:color .2s; }
+  .adm-tab.act { color:var(--blue-dark); border-bottom-color:var(--blue); }
+  .adm-body { padding:22px; }
+  .adm-sec { display:none; }
+  .adm-sec.act { display:block; }
+  .adm-note { background:#eff6ff; border-left:4px solid var(--blue-light); padding:11px 14px; border-radius:0 8px 8px 0; font-size:.83rem; color:#1d4ed8; margin-bottom:16px; line-height:1.55; }
+  .adm-fld { margin-bottom:13px; }
+  .adm-fld label { display:block; font-size:.78rem; font-weight:800; color:var(--blue-dark); margin-bottom:5px; text-transform:uppercase; letter-spacing:.04em; }
+  .adm-fld input,.adm-fld textarea { width:100%; padding:10px 12px; border:2px solid #e2e8f0; border-radius:8px; font-family:'Nunito'; font-size:.9rem; outline:none; transition:border-color .2s; color:var(--text); }
+  .adm-fld input:focus,.adm-fld textarea:focus { border-color:var(--blue-light); }
+  .adm-fld textarea { resize:vertical; min-height:80px; }
+  .adm-2col { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .adm-stars { display:flex; gap:5px; margin-top:4px; }
+  .adm-stars span { font-size:1.5rem; opacity:.22; cursor:pointer; transition:opacity .15s; }
+  .adm-stars span.on { opacity:1; }
+  .adm-sec-title { font-size:.78rem; font-weight:900; text-transform:uppercase; letter-spacing:.06em; color:var(--blue-dark); margin-bottom:12px; padding-bottom:6px; border-bottom:2px solid #e2e8f0; }
+  .adm-add-box { background:var(--gray-light); border-radius:12px; padding:18px; margin-top:6px; }
+  .adm-rc { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:12px 15px; margin-bottom:9px; }
+  .adm-rc-top { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:6px; }
+  .adm-rc-meta { font-size:.76rem; color:#64748b; }
+  .adm-rc-text { font-size:.85rem; color:var(--text); font-style:italic; }
+  .btn-adm { padding:10px 18px; background:var(--blue); color:#fff; border:none; border-radius:8px; font-family:'Nunito'; font-weight:800; font-size:.85rem; cursor:pointer; transition:background .2s; display:inline-flex; align-items:center; gap:6px; }
+  .btn-adm:hover { background:var(--blue-dark); }
+  .btn-adm.gold { background:var(--gold); color:var(--blue-dark); }
+  .btn-adm.gold:hover { background:#e6b800; }
+  .btn-adm.red { background:#dc2626; }
+  .btn-adm.red:hover { background:#b91c1c; }
+  .btn-adm.green { background:#16a34a; }
+  .btn-adm.green:hover { background:#15803d; }
+  .adm-hr { border:none; border-top:2px solid #e2e8f0; margin:20px 0; }
+  .adm-hint { font-size:.75rem; color:#64748b; margin-top:5px; line-height:1.5; }
+  @media(max-width:600px){ .adm-2col{grid-template-columns:1fr} .adm-body{padding:14px} }
+
+  /* ── NOTIF TOAST ── */
+  .notif { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--blue-dark); color:#fff; padding:11px 22px; border-radius:30px; font-size:.86rem; font-weight:700; z-index:9999; transition:transform .35s ease; white-space:nowrap; max-width:90vw; pointer-events:none; }
+  .notif.show { transform:translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
@@ -494,6 +562,7 @@
   <div class="nav-links">
     <a href="#como">¿Cómo funciona?</a>
     <a href="#encargo">Hacer Encargo</a>
+    <a href="#resenas">Reseñas</a>
     <a href="#contacto">Contacto</a>
   </div>
   <a href="https://wa.me/50671757727?text=%C2%A1Hola%21%20Los%20contacto%20desde%20la%20p%C3%A1gina%20web%20de%20Smart%20Encargos%20CR%20%F0%9F%91%8B%20Quisiera%20hacer%20una%20consulta%20sobre%20un%20encargo%20desde%20Golfito." target="_blank" class="nav-wa">
@@ -858,6 +927,19 @@
   </div>
 </section>
 
+<!-- RESEÑAS -->
+<section id="resenas">
+  <div class="container">
+    <span class="section-label">Clientes satisfechos</span>
+    <h2 class="section-title">LO QUE DICEN <span class="highlight">NUESTROS CLIENTES</span></h2>
+    <p class="section-sub">Experiencias reales de personas que confiaron en Smart Encargos CR.</p>
+    <div class="res-grid" id="resGrid"></div>
+    <div style="text-align:center;margin-top:8px">
+      <a href="resenas.html" target="_blank" class="btn-resena">⭐ Dejá tu reseña</a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section id="contacto">
   <span class="section-label">Contacto directo</span>
@@ -882,6 +964,110 @@
 <a href="https://wa.me/50671757727?text=%C2%A1Hola%21%20Los%20contacto%20desde%20la%20p%C3%A1gina%20web%20de%20Smart%20Encargos%20CR%20%F0%9F%91%8B%20Quisiera%20hacer%20una%20consulta%20sobre%20un%20encargo%20desde%20Golfito." target="_blank" class="floating-wa" title="Escribinos por WhatsApp">
   💬
 </a>
+
+<!-- ADMIN PANEL -->
+<div class="adm-overlay" id="admOverlay">
+  <div class="adm-box">
+    <div class="adm-head">
+      <h2>🛠 Panel de Administración</h2>
+      <button class="adm-x" onclick="closeAdmin()">✕</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="admLogin" class="adm-login-box">
+      <h3>Acceso Seguro</h3>
+      <div class="adm-pw-row">
+        <input type="password" id="admPwInput" placeholder="Contraseña de administrador" onkeydown="if(event.key==='Enter')checkAdmPw()">
+        <button onclick="checkAdmPw()">Entrar</button>
+      </div>
+    </div>
+
+    <!-- PANEL (hidden until login) -->
+    <div id="admPanel" style="display:none">
+      <div class="adm-tabs">
+        <button class="adm-tab act" onclick="switchAdmTab('resenas',this)">⭐ Reseñas</button>
+        <button class="adm-tab" onclick="switchAdmTab('config',this)">⚙️ Configuración</button>
+      </div>
+      <div class="adm-body">
+
+        <!-- TAB: RESEÑAS -->
+        <div class="adm-sec act" id="atab-resenas">
+          <div class="adm-note">💡 Los clientes envían su reseña vía <strong>resenas.html</strong> → te llega por Formspree al correo → la revisás y la agregás aquí si la aprobás.</div>
+
+          <!-- Lista de reseñas publicadas -->
+          <div class="adm-sec-title">📋 Reseñas Publicadas</div>
+          <div id="admResList"></div>
+
+          <!-- Agregar reseña -->
+          <div class="adm-add-box" style="margin-top:16px">
+            <div class="adm-sec-title" style="border:none;margin-bottom:14px">➕ Agregar Reseña Aprobada</div>
+            <div class="adm-2col">
+              <div class="adm-fld"><label>Nombre del cliente *</label><input type="text" id="ar-name" placeholder="Ej: María González"></div>
+              <div class="adm-fld"><label>Provincia / Origen <small style="font-weight:400;color:#64748b">(opcional)</small></label><input type="text" id="ar-origin" placeholder="Ej: Alajuela, San José"></div>
+            </div>
+            <div class="adm-fld"><label>Producto encargado <small style="font-weight:400;color:#64748b">(opcional)</small></label><input type="text" id="ar-product" placeholder="Ej: Samsung 55&quot; 4K, Lavadora LG 18lb"></div>
+            <div class="adm-fld">
+              <label>Calificación *</label>
+              <div class="adm-stars" id="arStars">
+                <span onclick="setAdmStar(1)">⭐</span>
+                <span onclick="setAdmStar(2)">⭐</span>
+                <span onclick="setAdmStar(3)">⭐</span>
+                <span onclick="setAdmStar(4)">⭐</span>
+                <span onclick="setAdmStar(5)">⭐</span>
+              </div>
+            </div>
+            <div class="adm-fld"><label>Reseña *</label><textarea id="ar-text" placeholder="Texto tal como lo envió el cliente..."></textarea></div>
+            <div class="adm-2col">
+              <div class="adm-fld"><label>Fecha <small style="font-weight:400;color:#64748b">(mes/año)</small></label><input type="text" id="ar-date" placeholder="Ej: Abril 2025"></div>
+            </div>
+            <button class="btn-adm green" onclick="addReview()">✅ Publicar Reseña</button>
+          </div>
+        </div>
+
+        <!-- TAB: CONFIGURACIÓN -->
+        <div class="adm-sec" id="atab-config">
+          <div class="adm-sec-title">✉️ Formspree</div>
+          <div class="adm-fld">
+            <label>Formspree ID — Formulario de Reseñas <small style="font-weight:400;color:#64748b">(para resenas.html)</small></label>
+            <input type="text" id="a-formspreeResenas" placeholder="Ej: abcd1234">
+            <p class="adm-hint">💡 Creá un formulario llamado "Smart Encargos — Reseñas" en <strong>formspree.io</strong> y pegá el ID aquí. Los clientes que llenen resenas.html te lo enviarán por correo automáticamente.</p>
+          </div>
+
+          <hr class="adm-hr">
+          <div class="adm-sec-title">🐙 Publicar en GitHub Pages</div>
+          <div class="adm-note">Pegá tu GitHub Personal Token para que los cambios se guarden en el repositorio y aparezcan en la web pública.</div>
+          <div class="adm-fld">
+            <label>GitHub Token (ghp_...)</label>
+            <div style="position:relative">
+              <input type="password" id="gh-token" placeholder="ghp_... o github_pat_..." autocomplete="off">
+              <button onclick="toggleTok()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:.9rem;color:#64748b">👁</button>
+            </div>
+            <p class="adm-hint">Token con permiso <code>repo</code>. Se guarda solo en este navegador (localStorage), nunca se sube al servidor.</p>
+          </div>
+          <div class="adm-2col" style="gap:10px">
+            <div class="adm-fld"><label>Usuario GitHub</label><input type="text" id="gh-user" placeholder="smartencargoscr"></div>
+            <div class="adm-fld"><label>Repositorio</label><input type="text" id="gh-repo" placeholder="smartencargoscr.github.io"></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+            <button class="btn-adm gold" onclick="publishGH()">🚀 Publicar en GitHub</button>
+            <button class="btn-adm" onclick="exportLocal()">💾 Descargar index.html</button>
+          </div>
+
+          <hr class="adm-hr">
+          <div class="adm-sec-title">🔐 Cambiar Contraseña</div>
+          <div class="adm-fld"><label>Contraseña actual</label><input type="password" id="pw-cur" placeholder="Contraseña actual"></div>
+          <div class="adm-fld"><label>Nueva contraseña</label><input type="password" id="pw-new" placeholder="Nueva contraseña (mín. 8 caracteres)"></div>
+          <div class="adm-fld"><label>Confirmar nueva contraseña</label><input type="password" id="pw-confirm" placeholder="Repetir nueva contraseña"></div>
+          <button class="btn-adm" onclick="changeAdmPw()">🔐 Cambiar Contraseña</button>
+        </div>
+
+      </div><!-- /adm-body -->
+    </div><!-- /admPanel -->
+  </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="notif" id="notif"></div>
 
 <script>
   // ── Particles ──
@@ -1316,6 +1502,294 @@ ${hasPhoto ? '📸 _Adjunto foto de referencia en este chat._\n' : ''}¡Hola! Me
     document.getElementById('formSuccess').classList.remove('show');
     document.getElementById('photoReminder').classList.remove('show');
   }
+
+  // ══════════════════════════════════════════════════
+  //  DATA SYSTEM
+  // ══════════════════════════════════════════════════
+  const DEFAULT_DATA = { reviews: [], formspreeResenas: '', adminPw: 'a2d1f6e919add44ceca19442cb59ddb17e799751adb27ddc6c69af6ae9c036ff' };
+  let D = JSON.parse(JSON.stringify(DEFAULT_DATA));
+
+  function loadData(){
+    try {
+      const saved = localStorage.getItem('sec_data');
+      if(saved) { const p=JSON.parse(saved); if(p&&typeof p==='object') D=Object.assign({},DEFAULT_DATA,p); }
+    } catch(e){}
+    // Try to fetch data.json from server
+    fetch('./data.json?nc='+Date.now(),{cache:'no-store'})
+      .then(r=>r.ok?r.json():null)
+      .then(remote=>{
+        if(!remote) return;
+        // Merge: local adminPw wins, rest from remote
+        const localPw = D.adminPw;
+        D = Object.assign({},DEFAULT_DATA,remote);
+        if(localPw && isValidHash(localPw)) D.adminPw = localPw;
+        saveLocal();
+        renderReviews();
+      }).catch(()=>{});
+    renderReviews();
+  }
+
+  function saveLocal(){ try{ localStorage.setItem('sec_data', JSON.stringify(D)); }catch(e){} }
+  function isValidHash(h){ return /^[0-9a-f]{64}$/.test(h); }
+
+  async function hashPw(pw){
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw.trim()));
+    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  // ── Render public reviews ──
+  function renderReviews(){
+    const grid = document.getElementById('resGrid');
+    if(!grid) return;
+    const revs = D.reviews || [];
+    if(!revs.length){
+      grid.innerHTML = '<p class="res-empty reveal">Aún no hay reseñas publicadas. ¡Sé el primero en compartir tu experiencia!</p>';
+      return;
+    }
+    grid.innerHTML = revs.map(r => {
+      const stars = '⭐'.repeat(Math.min(5,Math.max(1,r.rating||5)));
+      const init  = (r.name||'?')[0].toUpperCase();
+      return `<div class="res-card reveal">
+        <div class="res-stars">${stars}</div>
+        <p class="res-text">${esc(r.text||'')}</p>
+        <div class="res-footer">
+          <div class="res-avatar">${init}</div>
+          <div style="flex:1;min-width:0">
+            <div class="res-name">${esc(r.name||'')}${r.origin?` <span style="font-weight:400;font-size:.74rem;color:#94a3b8">${esc(r.origin)}</span>`:''}
+            </div>
+            ${r.product?`<div class="res-sub">📦 ${esc(r.product)}</div>`:''}
+          </div>
+          ${r.date?`<div class="res-date">${esc(r.date)}</div>`:''}
+        </div>
+      </div>`;
+    }).join('');
+    // Re-observe new cards
+    document.querySelectorAll('#resGrid .reveal').forEach(el=>{
+      el.style.opacity='0'; el.style.transform='translateY(28px)';
+      io.observe(el);
+    });
+  }
+
+  // ══════════════════════════════════════════════════
+  //  ADMIN SYSTEM
+  // ══════════════════════════════════════════════════
+  let _admStar = 5;
+  let _loggedIn = false;
+
+  // 5 clicks on hero title
+  let _hClicks=0, _hTimer=null;
+  document.querySelector('.hero-logo').style.cursor='default';
+  document.querySelector('.hero-logo').addEventListener('click', function(e){
+    _hClicks++;
+    clearTimeout(_hTimer);
+    if(_hClicks>=5){ _hClicks=0; openAdmin(); return; }
+    _hTimer = setTimeout(()=>{ _hClicks=0; }, 2000);
+  });
+
+  function openAdmin(){
+    document.getElementById('admOverlay').classList.add('open');
+    document.body.style.overflow='hidden';
+    if(_loggedIn) showAdmPanel();
+    else showAdmLogin();
+  }
+  function closeAdmin(){
+    document.getElementById('admOverlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  // Click outside box
+  document.getElementById('admOverlay').addEventListener('click',function(e){
+    if(e.target===this) closeAdmin();
+  });
+
+  function showAdmLogin(){
+    document.getElementById('admLogin').style.display='block';
+    document.getElementById('admPanel').style.display='none';
+    setTimeout(()=>document.getElementById('admPwInput').focus(),100);
+  }
+  function showAdmPanel(){
+    document.getElementById('admLogin').style.display='none';
+    document.getElementById('admPanel').style.display='block';
+    populateAdmConfig();
+    renderAdmReviews();
+    setAdmStar(5);
+  }
+
+  async function checkAdmPw(){
+    const pw = document.getElementById('admPwInput').value;
+    if(!pw){ showNotif('⚠️ Ingresá la contraseña'); return; }
+    const hash = await hashPw(pw);
+    const stored = isValidHash(D.adminPw) ? D.adminPw : DEFAULT_DATA.adminPw;
+    if(hash === stored){
+      _loggedIn = true;
+      document.getElementById('admPwInput').value='';
+      showAdmPanel();
+    } else {
+      showNotif('❌ Contraseña incorrecta');
+      document.getElementById('admPwInput').select();
+    }
+  }
+
+  function switchAdmTab(name, btn){
+    document.querySelectorAll('.adm-tab').forEach(t=>t.classList.remove('act'));
+    document.querySelectorAll('.adm-sec').forEach(s=>s.classList.remove('act'));
+    btn.classList.add('act');
+    document.getElementById('atab-'+name).classList.add('act');
+  }
+
+  function setAdmStar(n){
+    _admStar = n;
+    document.querySelectorAll('#arStars span').forEach((s,i)=>s.classList.toggle('on',i<n));
+  }
+
+  function renderAdmReviews(){
+    const list = document.getElementById('admResList');
+    const revs = D.reviews||[];
+    if(!revs.length){
+      list.innerHTML='<p style="color:#94a3b8;font-size:.85rem;font-style:italic;margin-bottom:12px">Aún no hay reseñas publicadas.</p>';
+      return;
+    }
+    list.innerHTML = revs.map((r,i)=>`
+      <div class="adm-rc">
+        <div class="adm-rc-top">
+          <div>
+            <strong style="font-size:.88rem">${esc(r.name||'')}</strong>
+            <span class="adm-rc-meta"> · ${'⭐'.repeat(r.rating||5)} · ${esc(r.date||'')}${r.origin?' · '+esc(r.origin):''}${r.product?' · 📦 '+esc(r.product):''}</span>
+          </div>
+          <button class="btn-adm red" style="padding:4px 10px;font-size:.75rem" onclick="deleteReview(${i})">🗑 Eliminar</button>
+        </div>
+        <div class="adm-rc-text">"${esc(r.text||'')}"</div>
+      </div>`).join('');
+  }
+
+  function addReview(){
+    const name    = document.getElementById('ar-name').value.trim();
+    const text    = document.getElementById('ar-text').value.trim();
+    const origin  = document.getElementById('ar-origin').value.trim();
+    const product = document.getElementById('ar-product').value.trim();
+    const date    = document.getElementById('ar-date').value.trim();
+    if(!name||!text){ showNotif('⚠️ Nombre y reseña son obligatorios'); return; }
+    if(!D.reviews) D.reviews=[];
+    D.reviews.unshift({id:Date.now(),name,origin,product,rating:_admStar,text,date});
+    saveLocal();
+    document.getElementById('ar-name').value='';
+    document.getElementById('ar-text').value='';
+    document.getElementById('ar-origin').value='';
+    document.getElementById('ar-product').value='';
+    document.getElementById('ar-date').value='';
+    setAdmStar(5);
+    renderAdmReviews();
+    renderReviews();
+    showNotif('✅ Reseña publicada. Acordate de publicar en GitHub.');
+  }
+
+  function deleteReview(i){
+    if(!confirm('¿Eliminar esta reseña?')) return;
+    D.reviews.splice(i,1);
+    saveLocal();
+    renderAdmReviews();
+    renderReviews();
+  }
+
+  // ── Config tab ──
+  function populateAdmConfig(){
+    document.getElementById('a-formspreeResenas').value = D.formspreeResenas||'';
+    const ghCfg = JSON.parse(localStorage.getItem('sec_gh')||'{}');
+    document.getElementById('gh-token').value = ghCfg.token||'';
+    document.getElementById('gh-user').value  = ghCfg.user||'smartencargoscr';
+    document.getElementById('gh-repo').value  = ghCfg.repo||'smartencargoscr.github.io';
+  }
+
+  function saveAdmConfig(){
+    D.formspreeResenas = document.getElementById('a-formspreeResenas').value.trim();
+    saveLocal();
+    const ghCfg = { token:document.getElementById('gh-token').value.trim(), user:document.getElementById('gh-user').value.trim(), repo:document.getElementById('gh-repo').value.trim() };
+    localStorage.setItem('sec_gh', JSON.stringify(ghCfg));
+  }
+
+  function toggleTok(){
+    const inp = document.getElementById('gh-token');
+    inp.type = inp.type==='password'?'text':'password';
+  }
+
+  async function changeAdmPw(){
+    const cur     = document.getElementById('pw-cur').value;
+    const nw      = document.getElementById('pw-new').value;
+    const confirm = document.getElementById('pw-confirm').value;
+    if(!cur||!nw||!confirm){ showNotif('⚠️ Completá todos los campos'); return; }
+    if(nw.length<8){ showNotif('⚠️ La nueva contraseña debe tener al menos 8 caracteres'); return; }
+    if(nw!==confirm){ showNotif('⚠️ Las contraseñas no coinciden'); return; }
+    const curHash = await hashPw(cur);
+    const stored  = isValidHash(D.adminPw)?D.adminPw:DEFAULT_DATA.adminPw;
+    if(curHash!==stored){ showNotif('❌ Contraseña actual incorrecta'); return; }
+    D.adminPw = await hashPw(nw);
+    saveLocal();
+    document.getElementById('pw-cur').value='';
+    document.getElementById('pw-new').value='';
+    document.getElementById('pw-confirm').value='';
+    showNotif('✅ Contraseña actualizada');
+  }
+
+  // ── GitHub publish ──
+  async function publishGH(){
+    saveAdmConfig();
+    const ghCfg = JSON.parse(localStorage.getItem('sec_gh')||'{}');
+    const {token,user,repo} = ghCfg;
+    if(!token||!user||!repo){ showNotif('⚠️ Completá Token, Usuario y Repositorio'); return; }
+
+    showNotif('🚀 Publicando en GitHub...');
+
+    // Build data.json content (no adminPw)
+    const pub = JSON.parse(JSON.stringify(D));
+    delete pub.adminPw;
+    const dataContent = JSON.stringify(pub, null, 2);
+    const dataB64 = btoa(unescape(encodeURIComponent(dataContent)));
+
+    try {
+      // 1. Get current SHA of data.json
+      const headers = { 'Authorization':'token '+token, 'Accept':'application/vnd.github.v3+json', 'Content-Type':'application/json' };
+      const base = `https://api.github.com/repos/${user}/${repo}/contents`;
+
+      let sha = null;
+      const existing = await fetch(`${base}/data.json`, {headers});
+      if(existing.ok){ const ej=await existing.json(); sha=ej.sha; }
+
+      // 2. Push data.json
+      const body = { message:'Update reseñas — Smart Encargos CR', content:dataB64, ...(sha?{sha}:{}) };
+      const res = await fetch(`${base}/data.json`, { method:'PUT', headers, body:JSON.stringify(body) });
+      if(!res.ok) throw new Error(`data.json: ${res.status}`);
+
+      showNotif('✅ Publicado en GitHub. Los cambios aparecerán en 1–2 minutos.');
+    } catch(e){
+      showNotif('❌ Error: '+e.message);
+    }
+  }
+
+  function exportLocal(){
+    saveAdmConfig();
+    // Bake current data into a standalone HTML
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html';
+    a.click();
+    showNotif('💾 Descargando index.html...');
+  }
+
+  // ── Toast notification ──
+  let _notifTimer=null;
+  function showNotif(msg){
+    const el=document.getElementById('notif');
+    el.textContent=msg;
+    el.classList.add('show');
+    clearTimeout(_notifTimer);
+    _notifTimer=setTimeout(()=>el.classList.remove('show'),3200);
+  }
+
+  // ── Init ──
+  loadData();
 </script>
 </body>
 </html>
