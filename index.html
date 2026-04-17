@@ -1578,10 +1578,10 @@ ${hasPhoto ? '📸 _Adjunto foto de referencia en este chat._\n' : ''}¡Hola! Me
   let _admStar = 5;
   let _loggedIn = false;
 
-  // 5 clicks on hero title
+  // 5 clicks on nav logo
   let _hClicks=0, _hTimer=null;
-  document.querySelector('.hero-logo').style.cursor='default';
-  document.querySelector('.hero-logo').addEventListener('click', function(e){
+  document.querySelector('.nav-logo').style.cursor='default';
+  document.querySelector('.nav-logo').addEventListener('click', function(e){
     _hClicks++;
     clearTimeout(_hTimer);
     if(_hClicks>=5){ _hClicks=0; openAdmin(); return; }
